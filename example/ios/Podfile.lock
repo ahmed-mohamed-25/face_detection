@@ -55,8 +55,8 @@ PODS:
   - PromisesObjC (2.4.0)
 
 DEPENDENCIES:
-  - google_mlkit_commons (from `/Users/ahmedmohamed/Documents/ml_kit/face_detection/google_mlkit_face_detection/example/ios/../../../google_mlkit_commons/ios`)
-  - google_mlkit_face_detection (from `/Users/ahmedmohamed/Documents/ml_kit/face_detection/google_mlkit_face_detection/example/ios/../../ios`)
+  - google_mlkit_commons (from `/Users/ahmedmohamed/Documents/mobile-apps/face_detection/google_mlkit_face_detection/example/ios/../../../google_mlkit_commons/ios`)
+  - google_mlkit_face_detection (from `/Users/ahmedmohamed/Documents/mobile-apps/face_detection/google_mlkit_face_detection/example/ios/../../ios`)
 
 SPEC REPOS:
   trunk:
@@ -75,9 +75,9 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   google_mlkit_commons:
-    :path: "/Users/ahmedmohamed/Documents/ml_kit/face_detection/google_mlkit_face_detection/example/ios/../../../google_mlkit_commons/ios"
+    :path: "/Users/ahmedmohamed/Documents/mobile-apps/face_detection/google_mlkit_face_detection/example/ios/../../../google_mlkit_commons/ios"
   google_mlkit_face_detection:
-    :path: "/Users/ahmedmohamed/Documents/ml_kit/face_detection/google_mlkit_face_detection/example/ios/../../ios"
+    :path: "/Users/ahmedmohamed/Documents/mobile-apps/face_detection/google_mlkit_face_detection/example/ios/../../ios"
 
 SPEC CHECKSUMS:
   Flutter: 8ff16720b007bae16abfe75ef9fe3ee45ead486a
