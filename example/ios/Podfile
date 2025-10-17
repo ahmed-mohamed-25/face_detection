@@ -1,0 +1,39 @@
+platform :ios, '17.0'
+
+use_frameworks! :linkage => :static
+use_modular_headers!
+
+install! 'cocoapods', :deterministic_uuids => false
+
+target 'Runner' do
+  flutter_application_path = File.join(File.dirname(__FILE__), '..')
+  eval(File.read(File.join(flutter_application_path, '.flutter-plugins-dependencies')))
+
+  # If the generated `.flutter-plugins-dependencies` does not produce pod
+  # entries (for example when it's in JSON/metadata-only format), add
+  # explicit local pods for the plugin packages so CocoaPods will install
+  # the native code and headers. This ensures the ObjC `@import` in
+  # GeneratedPluginRegistrant can find the module.
+  # Paths are relative to `flutter_application_path` which points to the
+  # `example` directory. Adjust paths so they point to the plugin podspecs.
+  pod 'google_mlkit_commons', :path => File.join(flutter_application_path, '..', '..', 'google_mlkit_commons', 'ios')
+  pod 'google_mlkit_face_detection', :path => File.join(flutter_application_path, '..', 'ios')
+
+  use_frameworks! :linkage => :static
+  use_modular_headers!
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      # Disable BUILD_LIBRARY_FOR_DISTRIBUTION to avoid generating module interfaces
+      # that are incompatible with Objective-C bridging headers.
+      config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'NO'
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '17.0'
+      # For mixed native/plugin setups on Apple Silicon, it can be necessary
+      # to exclude arm64 for the simulator. Adjust if needed for your CI/dev machines.
+      config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
+      config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
+    end
+  end
+end
