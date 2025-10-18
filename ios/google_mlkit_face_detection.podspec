@@ -29,18 +29,5 @@ Pod::Spec.new do |s|
   s.static_framework = true
 
   # CocoaPods build flags for Xcode 26
-  s.pod_target_xcconfig = {
-    'DEFINES_MODULE' => 'YES',
-  'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'NO',
-    'CLANG_ENABLE_MODULES' => 'YES',
-    'DEAD_CODE_STRIPPING' => 'NO',
-    'IPHONEOS_DEPLOYMENT_TARGET' => '17.0',
-  }
-
-  s.user_target_xcconfig = {
-    'DEFINES_MODULE' => 'YES',
-  'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'NO',
-    'CLANG_ENABLE_MODULES' => 'YES',
-    'IPHONEOS_DEPLOYMENT_TARGET' => '17.0'
-  }
+  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
 end
