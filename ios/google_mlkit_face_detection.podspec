@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.public_header_files = 'Classes/**/*.h'
 
   s.dependency 'Flutter'
-  s.dependency 'GoogleMLKit/FaceDetection', '~> 7.0.0'
+  s.dependency 'GoogleMLKit/FaceDetection', '~> 8.0.0'
   s.dependency 'google_mlkit_commons'
 
   s.platform = :ios, '17.0'  # Lower to iOS 15 for better compatibility
