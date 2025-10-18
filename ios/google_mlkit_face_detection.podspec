@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.dependency 'google_mlkit_commons'
 
   s.platform = :ios, '17.0'  # Lower to iOS 15 for better compatibility
-  s.swift_version = '5.9'
+  s.swift_version = '6.2'
   s.static_framework = true
 
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
