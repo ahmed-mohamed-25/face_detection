@@ -13,21 +13,19 @@ Pod::Spec.new do |s|
   s.authors          = 'Multiple Authors'
   s.source           = { :path => '.' }
 
-  # Source files
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
 
-  # Dependencies
   s.dependency 'Flutter'
   s.dependency 'GoogleMLKit/FaceDetection', '~> 7.0.0'
   s.dependency 'google_mlkit_commons'
 
-  # iOS & Swift setup
-  # Raised deployment target and Swift version to align with modern Xcode toolchains (Xcode 26+)
-  s.platform = :ios, '17.0'
+  s.platform = :ios, '15.0'  # Lower to iOS 15 for better compatibility
   s.swift_version = '5.9'
   s.static_framework = true
 
-  # CocoaPods build flags for Xcode 26
-  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
+  s.pod_target_xcconfig = { 
+    'DEFINES_MODULE' => 'YES'
+    # Removed EXCLUDED_ARCHS - let Xcode handle architecture selection
+  }
 end
