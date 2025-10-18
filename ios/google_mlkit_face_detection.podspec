@@ -17,13 +17,17 @@ Pod::Spec.new do |s|
   s.public_header_files = 'Classes/**/*.h'
 
   s.dependency 'Flutter'
-  s.dependency 'GoogleMLKit/FaceDetection', '~> 8.0.0'
+  s.dependency 'GoogleMLKit/FaceDetection', '~> 7.0.0'
   s.dependency 'google_mlkit_commons'
 
-  s.platform = :ios, '17.0'  # Lower to iOS 15 for better compatibility
-  s.swift_version = '6.2'
-  s.static_framework = true
+  s.platform = :ios, '16.0'
+  s.swift_version = '5.9'
+  s.static_framework = false
 
-  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
+  s.pod_target_xcconfig = {
+    'DEFINES_MODULE' => 'YES',
+    'VALID_ARCHS' => 'arm64 x86_64'
+  }
+
 
 end
